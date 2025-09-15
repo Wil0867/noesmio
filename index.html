@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌱 Recent Innovations in Agronomy & Animal Science</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape1 { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+    .shape2 { width: 60px; height: 60px; top: 60%; right: 10%; animation-delay: -2s; }
+    .shape3 { width: 100px; height: 100px; top: 80%; left: 20%; animation-delay: -4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      animation: slideInDown 1s ease-out;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    @keyframes slideInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .tab {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tab::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s;
+    }
+
+    .tab:hover::before {
+      left: 100%;
+    }
+
+    .tab:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab.active {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .content {
+      animation: fadeInUp 1s ease-out 0.9s both;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transform: scale(0.95);
+      animation: cardEntrance 0.6s ease-out forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+
+    @keyframes cardEntrance {
+      to { transform: scale(1); }
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .card .kicker {
+      color: #667eea;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .card ul {
+      margin: 1rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .card li {
+      padding: 0.5rem 0;
+      border-left: 3px solid #667eea;
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+      background: rgba(102, 126, 234, 0.05);
+      border-radius: 0 10px 10px 0;
+      transition: all 0.3s ease;
+    }
+
+    .card li:hover {
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateX(10px);
+    }
+
+    .impact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .impact span {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+      animation: bounceIn 0.6s ease-out;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 3rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 15px;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #667eea;
+    }
+
+    .loading {
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out 0.2s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .tabs { grid-template-columns: 1fr; }
+      .card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-animation">
+    <div class="floating-shape shape1"></div>
+    <div class="floating-shape shape2"></div>
+    <div class="floating-shape shape3"></div>
+  </div>
+
+  <header>
+    <h1>🌱 Recent Innovations in Agronomy & Animal Science</h1>
+    <p>Explore four fresh, research-backed stories at the intersection of crop science and animal husbandry. Click a tab to dive in, skim the highlights, and jump to the source.</p>
+  </header>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab" id="dronesTab" onclick="showTab('drones')">
+        🚁 Agricultural Drones
+      </button>
+      <button class="tab" id="hensTab" onclick="showTab('hens')">
+        🐔 AI for Hens
+      </button>
+      <button class="tab" id="methaneTab" onclick="showTab('methane')">
+        🧪 Methane & AI
+      </button>
+      <button class="tab" id="weedsTab" onclick="showTab('weeds')">
+        🌿 Weed Vision
+      </button>
+    </div>
+
+    <div class="content">
+      <div id="news" class="loading"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Sources open in a new tab. This is a simplified interactive HTML page built for demonstration.</p>
+  </footer>
+
+  <script>
+    const NEWS = {
+      drones: {
+        title: "Spray drones slash water use ~90% and lift yields in India",
+        kicker: "Field trials across 10 districts (2023–2025)",
+        bullets: [
+          "Water used for spraying cut from ~500 L/ha to ~55 L/ha (≈ –90%).",
+          "Yield uptick reported: +5% (finger millet) and +10% (pigeon pea).",
+          "Local SOP optimized for height, discharge and timing to curb drift."
+        ],
+        impact: ["Water efficiency", "Worker safety", "Higher yield"],
+        url: "https://timesofindia.indiatimes.com/city/bengaluru/drones-in-farming-makes-waves-help-reduce-water-use-and-increase-yields/articleshow/122586346.cms",
+        stats: [
+          { number: "90%", label: "Water reduction" },
+          { number: "10%", label: "Yield increase" },
+          { number: "10", label: "Districts tested" }
+        ]
+      },
+      hens: {
+        title: "Multimodal AI to monitor laying hen welfare & productivity",
+        kicker: "Review of 2019–2025 advances",
+        bullets: [
+          "Fuses visual, acoustic, environmental and physiological data.",
+          "Feature-level (intermediate) fusion offers robust field performance.",
+          "Barriers: sensor fragility, deployment cost, inconsistent labels."
+        ],
+        impact: ["Early disease alerts", "Ethical production", "Scalable monitoring"],
+        url: "https://arxiv.org/abs/2508.07628",
+        stats: [
+          { number: "4+", label: "Data types" },
+          { number: "2019", label: "Research start" },
+          { number: "100%", label: "Automation" }
+        ]
+      },
+      methane: {
+        title: "USDA/ISU use GenAI to fast‑track methane mitigation options",
+        kicker: "Bushland, Texas • Jan 2025",
+        bullets: [
+          "Generative AI accelerates search for enteric methane solutions.",
+          "Targets feed, microbiome and management strategies to cut CH₄.",
+          "Animal ag ≈ 33% of U.S. ag and ~3% of total GHG emissions."
+        ],
+        impact: ["Lower emissions", "Faster R&D", "Efficient screening"],
+        url: "https://www.ars.usda.gov/news-events/news/research-news/2025/scientists-leverage-ai-to-fast-track-methane-mitigation-strategies-in-animal-agriculture/",
+        stats: [
+          { number: "33%", label: "% of U.S. agriculture" },
+          { number: "3%", label: "% of total GHG" },
+          { number: "2025", label: "Implementation year" }
+        ]
+      },
+      weeds: {
+        title: "AI vision saves ~70% herbicide in tomato fields (UF/IFAS)",
+        kicker: "Gulf Coast Research & Education Center • Jul 2025",
+        bullets: [
+          "Computer vision targets weeds while avoiding crops in real time.",
+          "Demonstrations report ~70% reduction in herbicide use.",
+          "Precision spot‑spraying → less chemical exposure & runoff."
+        ],
+        impact: ["Lower inputs", "Cleaner environment", "Cost savings"],
+        url: "https://blogs.ifas.ufl.edu/news/2025/07/09/uf-ifas-scientist-uses-ai-to-target-weeds-not-nearby-tomatoes-saving-70-of-herbicide/",
+        stats: [
+          { number: "70%", label: "Herbicide reduction" },
+          { number: "100%", label: "Target precision" },
+          { number: "0%", label: "Crop damage" }
+        ]
+      }
+    };
+
+    function showTab(key) {
+      const data = NEWS[key];
+      
+      // Añadir efecto de salida
+      const newsElement = document.getElementById('news');
+      newsElement.style.transform = 'translateY(20px)';
+      newsElement.style.opacity = '0';
+
+      setTimeout(() => {
+        newsElement.innerHTML = `
+          <div class="card">
+            <h3>${data.title}</h3>
+            <p class="kicker">${data.kicker}</p>
+            <ul>
+              ${data.bullets.map(b => `<li>${b}</li>`).join('')}
+            </ul>
+            <div class="stats">
+              ${data.stats.map(stat => `
+                <div class="stat-item">
+                  <div class="stat-number">${stat.number}</div>
+                  <div>${stat.label}</div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="impact">
+              ${data.impact.map((impact, index) => `
+                <span style="animation-delay: ${index * 0.1}s">${impact}</span>
+              `).join('')}
+            </div>
+            <a class="btn" href="${data.url}" target="_blank" rel="noopener noreferrer">📖 Leer fuente</a>
+            <p style="margin-top:1rem;font-size:0.95rem;color:#666;">Fuente: <a href="${data.url}" target="_blank" rel="noopener noreferrer">${data.url}</a></p>
+          </div>
+        `;
+
+        // Efecto de entrada
+        setTimeout(() => {
+          newsElement.style.transform = 'translateY(0)';
+          newsElement.style.opacity = '1';
+        }, 50);
+      }, 200);
+
+      // Actualizar pestañas
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(key + "Tab").classList.add('active');
+    }
+
+    // Inicializar la página
+    window.addEventListener('load', () => {
+      showTab('drones');
+      
+      // Añadir efectos de hover adicionales
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px) scale(1.02)';
+        });
+        
+        tab.addEventListener('mouseleave', function() {
+          if (!this.classList.contains('active')) {
+            this.style.transform = 'translateY(0) scale(1)';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
